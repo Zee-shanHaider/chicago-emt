@@ -1,11 +1,12 @@
 import MyPagination from "../components/ui/Pagination";
-import Button from "../components/ui/Button";
 import MyTable from "../components/ui/Table";
 import { useState } from "react";
+import Modal from "../components/ui/Modal";
+import SemesterForm from "../components/forms/semesterForm";
 
 const SemesterPage = () => {
   const headers = ["Semester Name", "Start Date", "End Date"];
-
+  const [modal, setModal] = useState(false);
   const data = [
     {
       semestername: "Fall 2023",
@@ -32,6 +33,7 @@ const SemesterPage = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  const toggle = () => setModal(!modal);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -50,7 +52,16 @@ const SemesterPage = () => {
             <span class="glyphicon glyphicon-search form-control-feedback"></span>
           </div>
         </div>
-        <Button text={"Add Student"} />
+        <Modal
+          size={"lg"}
+          buttonText={"Add Semester"}
+          setModal={setModal}
+          toggle={toggle}
+          modal={modal}
+        >
+          <SemesterForm />
+        </Modal>
+        {/* <Button text={"Add Student"} /> */}
       </div>
       <h1>Semesters List</h1>
       <div className="d-flex w-full h-full flex-column justify-content-between align-items-end">

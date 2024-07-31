@@ -9,29 +9,129 @@ const StudentPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [modal, setModal] = useState(false);
 
-  const headers = ["First Name", "Last Name", "Username"];
+  const headers = ["First Name", "Last Name", "Username", "Payment Status"];
 
   const data = [
-    { firstname: "Mark", lastname: "Otto", username: "@mdo" },
-    { firstname: "Jacob", lastname: "Thornton", username: "@fat" },
-    { firstname: "Larry", lastname: "the Bird", username: "@twitter" },
-    { firstname: "John", lastname: "Doe", username: "@johnd" },
-    { firstname: "Jane", lastname: "Smith", username: "@janes" },
-    { firstname: "Alice", lastname: "Johnson", username: "@alicej" },
-    { firstname: "Bob", lastname: "Brown", username: "@bobb" },
-    { firstname: "Charlie", lastname: "Davis", username: "@charlied" },
-    { firstname: "David", lastname: "Wilson", username: "@davidw" },
-    { firstname: "Eve", lastname: "Miller", username: "@evem" },
-    { firstname: "Frank", lastname: "Taylor", username: "@frankt" },
-    { firstname: "Grace", lastname: "Anderson", username: "@gracea" },
-    { firstname: "Hank", lastname: "Thomas", username: "@hankt" },
-    { firstname: "Ivy", lastname: "Martinez", username: "@ivym" },
-    { firstname: "Jack", lastname: "White", username: "@jackw" },
-    { firstname: "Karen", lastname: "Harris", username: "@karenh" },
-    { firstname: "Leo", lastname: "Clark", username: "@leoc" },
-    { firstname: "Mia", lastname: "Lewis", username: "@mial" },
-    { firstname: "Noah", lastname: "Walker", username: "@noahw" },
-    { firstname: "Olivia", lastname: "Young", username: "@oliviay" },
+    {
+      firstname: "Mark",
+      lastname: "Otto",
+      username: "@mdo",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Jacob",
+      lastname: "Thornton",
+      username: "@fat",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Larry",
+      lastname: "the Bird",
+      username: "@twitter",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "John",
+      lastname: "Doe",
+      username: "@johnd",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Jane",
+      lastname: "Smith",
+      username: "@janes",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Alice",
+      lastname: "Johnson",
+      username: "@alicej",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Bob",
+      lastname: "Brown",
+      username: "@bobb",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Charlie",
+      lastname: "Davis",
+      username: "@charlied",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "David",
+      lastname: "Wilson",
+      username: "@davidw",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Eve",
+      lastname: "Miller",
+      username: "@evem",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Frank",
+      lastname: "Taylor",
+      username: "@frankt",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Grace",
+      lastname: "Anderson",
+      username: "@gracea",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Hank",
+      lastname: "Thomas",
+      username: "@hankt",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Ivy",
+      lastname: "Martinez",
+      username: "@ivym",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Jack",
+      lastname: "White",
+      username: "@jackw",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Karen",
+      lastname: "Harris",
+      username: "@karenh",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Leo",
+      lastname: "Clark",
+      username: "@leoc",
+      paymentstatus: "Not Paid",
+    },
+    {
+      firstname: "Mia",
+      lastname: "Lewis",
+      username: "@mial",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Noah",
+      lastname: "Walker",
+      username: "@noahw",
+      paymentstatus: "Paid",
+    },
+    {
+      firstname: "Olivia",
+      lastname: "Young",
+      username: "@oliviay",
+      paymentstatus: "Not Paid",
+    },
   ];
 
   const itemsPerPage = 10;

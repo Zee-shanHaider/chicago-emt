@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import MyTable from "../components/ui/Table";
 import MyPagination from "../components/ui/Pagination";
-import Button from "../components/ui/Button";
+import Modal from "../components/ui/Modal";
+import CourseForm from "../components/forms/courseForm";
 
 const Courses = () => {
   const headers = ["Course Name", "Course Code", "Instructor", "Credits"];
-
+  const [modal, setModal] = useState(false);
   const data = [
     {
       coursename: "Introduction to Computer Science",
@@ -47,6 +48,7 @@ const Courses = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+  const toggle = () => setModal(!modal);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -66,7 +68,15 @@ const Courses = () => {
             <span class="glyphicon glyphicon-search form-control-feedback"></span>
           </div>
         </div>
-        <Button text={"Add Course"} />
+        <Modal
+          size={"lg"}
+          buttonText={"Add Course"}
+          setModal={setModal}
+          toggle={toggle}
+          modal={modal}
+        >
+          <CourseForm />
+        </Modal>
       </div>
       <h1>Courses List</h1>
       <div className="d-flex w-full h-full flex-column justify-content-between align-items-end">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { FormInput, SelectDropdown } from "./components";
 import { useFormik } from "formik";
-import schema from "../../utility/schemas/createTutorSchema";
+import schema from "../../utility/schemas/createCourseSchema";
 
 const CreateTutor = () => {
   const [page, setPage] = useState(0);
@@ -11,109 +11,36 @@ const CreateTutor = () => {
   const mode = searchParams.get("mode");
 
   const initialValues = {
-    email: "",
-    fullName: "",
-    currentAddress: "",
-    birthdate: "",
-    cellPhone: "",
-    emergencyContact: "",
-    references: "",
-    licenseNumber: "",
-    licenseExpDate: "",
-    workWithChicago: "",
-    relevantExperiences: "",
-    weeklyCommitment: "",
-    healthcareProviderLicense: null,
-    longTermGoals: "",
-    zelleContact: "",
+    courseName: "",
+    courseCode: "",
+    instructor: "",
+    credits: "",
   };
 
   const formFields = [
     {
-      name: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Enter your email",
-    },
-    {
-      name: "fullName",
-      label: "Full Name",
+      name: "courseName",
+      label: "Course Name",
       type: "text",
-      placeholder: "Enter your full name",
+      placeholder: "Enter course name",
     },
     {
-      name: "currentAddress",
-      label: "Current Address",
+      name: "courseCode",
+      label: "Course Code",
       type: "text",
-      placeholder: "Enter your current address",
+      placeholder: "Enter course code",
     },
-    { name: "birthdate", label: "Birthdate", type: "date" },
     {
-      name: "cellPhone",
-      label: "Cell Phone #",
+      name: "instructor",
+      label: "Instructor",
       type: "text",
-      placeholder: "Enter your cell phone number",
+      placeholder: "Enter your instructor name",
     },
     {
-      name: "emergencyContact",
-      label: "Emergency Contact and best way to contact them",
-      type: "text",
-      placeholder: "Enter emergency contact details",
-    },
-    {
-      name: "references",
-      label: "2 References and best way to contact them",
-      type: "text",
-      placeholder: "Enter references",
-    },
-    {
-      name: "licenseNumber",
-      label: "Illinois EMT/Medic License Number",
-      type: "text",
-      placeholder: "Enter license number",
-    },
-    { name: "licenseExpDate", label: "License Exp Date", type: "date" },
-    {
-      name: "relevantExperiences",
-      label: "Relevant Experiences to aid you in teaching our EMT program",
-      type: "text",
-      placeholder: "Enter relevant experiences",
-    },
-    {
-      name: "workWithChicago",
-      label: "Why do you want to work with Chicago EMT Training?",
-      type: "textarea",
-      placeholder: "Enter your reason",
-    },
-    {
-      name: "weeklyCommitment",
-      label: "How many hours per week can you commit to CET?",
-      type: "select",
-      options: [
-        { value: "", label: "" },
-        { value: "0-3 hours", label: "0-3 hours" },
-        { value: "3-6 hours", label: "3-6 hours" },
-        { value: "6-9 hours", label: "6-9 hours" },
-        { value: "9-12 hours", label: "9-12 hours" },
-      ],
-    },
-    {
-      name: "healthcareProviderLicense",
-      label: "Upload your current healthcare provider license",
-      type: "file",
-    },
-    {
-      name: "longTermGoals",
-      label:
-        "How can Chicago EMT Training assist you with your long term goals?",
-      type: "textarea",
-      placeholder: "Enter your long term goals",
-    },
-    {
-      name: "zelleContact",
-      label: "Email/Phone number connected to Zelle",
-      type: "text",
-      placeholder: "Enter email/phone number for Zelle",
+      name: "credits",
+      label: "Credits",
+      type: "number",
+      placeholder: "Enter your credits",
     },
   ];
 
