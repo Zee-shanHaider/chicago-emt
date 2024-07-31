@@ -1,0 +1,20 @@
+@import "../node_modules/prismjs/themes/prism-tomorrow";
+// @import "./assets/scss/app.scss";
+
+.input-group.input-group-unstyled input.form-control {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.input-group-unstyled .input-group-addon {
+  border-radius: 4px;
+  border: 0px;
+  background-color: transparent;
+}
+
+.fixed-bottom-right {
+  position: fixed;
+  bottom: 25px; // Adjust as needed
+  right: 20px; // Adjust as needed
+  z-index: 1000;
+}
