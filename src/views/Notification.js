@@ -1,73 +1,42 @@
-import React, { useState } from "react";
-
-const NewGmailMessage = () => {
-  const [to, setTo] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSend = () => {
-    // Handle the send action
-    console.log("To:", to);
-    console.log("Subject:", subject);
-    console.log("Message:", message);
-  };
-
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import {
+  NewEmailMessage,
+  NewNotification,
+  AllNotifications,
+} from "../components/notification";
+import { MdOutlineNotificationAdd } from "react-icons/md";
+import { BsEnvelopePlus } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
+export default function Notification() {
   return (
-    <div className="container mt-2">
-      <div className="card">
-        <div className="card-body">
-          <h2 className="card-title mb-1">New Message</h2>
-          <form>
-            <div className="mb-1">
-              <label htmlFor="to" className="form-label">
-                To:
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="to"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
-            </div>
-            <div className="mb-1">
-              <label htmlFor="subject" className="form-label">
-                Subject:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </div>
-            <div className="mb-1">
-              <label htmlFor="message" className="form-label">
-                Message:
-              </label>
-              <textarea
-                className="form-control"
-                id="message"
-                rows="6"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
-            </div>
-            <div className="text-end">
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleSend}
-              >
-                Send
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div>
+      <Tabs>
+        <TabList>
+          <Tab>
+            <IoMdNotificationsOutline size={20} />
+            <span className="p-1">Notifications</span>
+          </Tab>
+          <Tab>
+            <BsEnvelopePlus size={20} />
+            <span className="p-1">Send Email</span>
+          </Tab>
+          <Tab>
+            <MdOutlineNotificationAdd size={20} />
+            <span className="p-1">Send Notification</span>
+          </Tab>
+        </TabList>
+
+        <TabPanel>
+          <AllNotifications />
+        </TabPanel>
+        <TabPanel>
+          <NewEmailMessage />
+        </TabPanel>
+        <TabPanel>
+          <NewNotification />
+        </TabPanel>
+      </Tabs>
     </div>
   );
-};
-
-export default NewGmailMessage;
+}

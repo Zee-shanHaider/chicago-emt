@@ -18,3 +18,18 @@
   right: 20px; // Adjust as needed
   z-index: 1000;
 }
+
+.react-tabs__tab-list {
+  border: none !important;
+  background: none !important;
+}
+
+.react-tabs__tab {
+  background-color: none !important;
+  color: none !important;
+  border: none !important;
+}
+
+.react-tabs__tab--selected {
+  background: none !important;
+}

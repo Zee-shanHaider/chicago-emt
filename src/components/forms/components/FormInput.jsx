@@ -22,7 +22,7 @@ function FormInput({
   ...otherprops
 }) {
   return (
-    <div className={`${margin ? "mb-1" : ""}`}>
+    <div className={`${margin ? "my-2" : ""}`}>
       <Label className={styles.formlabel}>
         {showLabel ? label : ""}
         {required ? "*" : ""}
@@ -32,6 +32,7 @@ function FormInput({
         autoComplete="off"
         type={type}
         name={name}
+        rows={6}
         value={value}
         className={`${styles.forminput} ${className}`}
         placeholder={placeholder}
