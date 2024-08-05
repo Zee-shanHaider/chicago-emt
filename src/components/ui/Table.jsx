@@ -1,9 +1,12 @@
 import React from "react";
 import { Table } from "reactstrap";
 import Status from "./Status";
+import { useSelector } from "react-redux";
 
 const MyTable = ({ headers, data }) => {
   const statusArray = ["paid", "not paid", "pending", "not started"];
+  const skin = useSelector((state) => state.layout.skin);
+  console.log(skin, " skin");
   return (
     <Table sort={true} responsiveTag={true}>
       <thead>
@@ -37,17 +40,6 @@ const MyTable = ({ headers, data }) => {
           </tr>
         ))}
       </tbody>
-
-      {/* <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {headers.map((header, colIndex) => {
-              const key = header.toLowerCase().replace(/ /g, "");
-              return <td key={colIndex}>{row[key]}</td>;
-            })}
-          </tr>
-        ))}
-      </tbody> */}
     </Table>
   );
 };

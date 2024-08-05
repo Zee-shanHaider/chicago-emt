@@ -88,6 +88,7 @@ const CreateTutor = () => {
     {
       name: "weeklyCommitment",
       label: "How many hours per week can you commit to CET?",
+      placeholder: "Select hours per week",
       type: "select",
       options: [
         { value: "", label: "" },
@@ -164,9 +165,10 @@ const CreateTutor = () => {
                   isClearable={false}
                   showAboveLabel={true}
                   required={true}
+                  placeholder={field.placeholder}
                   label={field.label}
                   value={field?.options?.find(
-                    (org) => org.value == formik.values[field.name]
+                    (opt) => opt.value == formik.values[field.name]
                   )}
                   onChange={({ value }) =>
                     formik.setFieldValue(field.name, value)

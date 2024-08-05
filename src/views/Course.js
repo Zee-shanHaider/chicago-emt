@@ -46,7 +46,7 @@ const Courses = () => {
 
   const currentData = data.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    currentPage * itemsPerPage 
   );
   const toggle = () => setModal(!modal);
 

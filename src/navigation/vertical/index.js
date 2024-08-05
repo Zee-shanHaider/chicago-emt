@@ -1,4 +1,4 @@
-import { Mail, Home, Users, BookOpen, Book } from "react-feather";
+import { Mail, Home, Users, BookOpen, Book, Bell } from "react-feather";
 
 export default [
   {
@@ -12,6 +12,12 @@ export default [
     title: "Courses",
     icon: <Book size={20} />,
     navLink: "/courses",
+  },
+  {
+    id: "notificationPage",
+    title: "Notifications",
+    icon: <Bell size={20} />,
+    navLink: "/notification",
   },
   {
     id: "semesterPage",

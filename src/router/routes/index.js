@@ -30,6 +30,7 @@ const Semester = lazy(() => import("../../views/Semester"));
 const Course = lazy(() => import("../../views/Course"));
 const Tutor = lazy(() => import("../../views/Tutor"));
 const Student = lazy(() => import("../../views/Student"));
+const Notification = lazy(() => import("../../views/Notification"));
 const Login = lazy(() => import("../../views/Login"));
 const Register = lazy(() => import("../../views/Register"));
 const ForgotPassword = lazy(() => import("../../views/ForgotPassword"));
@@ -53,6 +54,10 @@ const Routes = [
   {
     path: "/courses",
     element: <Course />,
+  },
+  {
+    path: "/notification",
+    element: <Notification />,
   },
   {
     path: "/students",
