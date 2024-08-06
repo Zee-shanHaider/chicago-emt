@@ -19,7 +19,7 @@ const SelectDropdown = ({
   ...otherprops
 }) => {
   return (
-    <div className={`${margin ? "my-2" : ""}`}>
+    <div className={`${margin ? "my-1" : ""}`}>
       {showAboveLabel ? (
         <label
           style={

@@ -5,12 +5,23 @@ import {
   CardTitle,
   CardText,
   CardLink,
+  Row,
+  Col,
 } from "reactstrap";
+import DashBoardCard from "../components/ui/DashboardCard";
 
 const Home = () => {
   return (
     <div>
-      <Card>
+      <Row>
+        <Col sm="3">
+          <DashBoardCard />
+        </Col>
+        <Col sm="3">
+          <DashBoardCard />
+        </Col>
+      </Row>
+      {/* <Card>
         <CardHeader>
           <CardTitle>Kick start your project 🚀</CardTitle>
         </CardHeader>
@@ -49,7 +60,7 @@ const Home = () => {
             to get more out of JWT authentication.
           </CardText>
         </CardBody>
-      </Card>
+      </Card> */}
     </div>
   );
 };

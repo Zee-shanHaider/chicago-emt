@@ -31,6 +31,7 @@ const Course = lazy(() => import("../../views/Course"));
 const Tutor = lazy(() => import("../../views/Tutor"));
 const Student = lazy(() => import("../../views/Student"));
 const Notification = lazy(() => import("../../views/Notification"));
+const EmailView = lazy(() => import("../../views/ViewEmail"));
 const Login = lazy(() => import("../../views/Login"));
 const Register = lazy(() => import("../../views/Register"));
 const ForgotPassword = lazy(() => import("../../views/ForgotPassword"));
@@ -58,6 +59,10 @@ const Routes = [
   {
     path: "/notification",
     element: <Notification />,
+  },
+  {
+    path: "/notification/:id",
+    element: <EmailView />,
   },
   {
     path: "/students",

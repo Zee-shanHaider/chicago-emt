@@ -22,7 +22,7 @@ function FormInput({
   ...otherprops
 }) {
   return (
-    <div className={`${margin ? "my-2" : ""}`}>
+    <div className={`${margin ? "my-1" : ""}`}>
       <Label className={styles.formlabel}>
         {showLabel ? label : ""}
         {required ? "*" : ""}

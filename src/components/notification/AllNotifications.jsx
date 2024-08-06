@@ -1,51 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IoMdStar, IoIosStarOutline } from "react-icons/io";
 import { Table } from "reactstrap";
 import { FaRegEye } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
-import { IoMailOpenOutline } from "react-icons/io5";
-const emails = [
-  {
-    id: 1,
-    from: "John Doe",
-    message:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nulla facilisi. Duis at velit eu est varius tempor...",
-    date: "5 Jul",
-    isStarred: false,
-    isRead: false,
-  },
-  {
-    id: 2,
-    from: "Jane Smith",
-    message:
-      "Curabitur ac leo nunc. Vestibulum et mauris vel ante finibus maximus nec ut leo. Integer consectetur luctus nunc, id tempus tortor. Nam consequat quam sed risus fringilla, non tincidunt tellus viverra...",
-    date: "7 Jul",
-    isStarred: false,
-    isRead: false,
-  },
-  {
-    id: 3,
-    from: "Alice Johnson",
-    message:
-      "Praesent sit amet fermentum elit. Etiam malesuada mauris ut urna elementum, non facilisis risus aliquet. Vivamus mollis orci a est bibendum, nec scelerisque sapien dictum...",
-    date: "7 Jul",
-    isStarred: false,
-    isRead: false,
-  },
-  {
-    id: 4,
-    from: "Bob Brown",
-    message:
-      "Maecenas pharetra, erat sed vulputate aliquam, ex magna efficitur dolor, ut pulvinar mi arcu in lacus. Suspendisse euismod tortor nec purus venenatis, at vulputate elit cursus...",
-    date: "25 Jul",
-    isStarred: false,
-    isRead: false,
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { Tooltip } from "reactstrap";
 
-const EmailNotifications = () => {
+const EmailNotifications = ({ setEmailId, emails, setSelectedTabIndex }) => {
+  const navigate = useNavigate();
   const [selectedEmails, setSelectedEmails] = useState([]);
   const [emailsList, setEmailsList] = useState(emails);
 
@@ -77,7 +41,7 @@ const EmailNotifications = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="mt-2">
       {selectedEmails.length > 0 && (
         <div className="mb-3 d-flex gap-2">
           <button
@@ -101,7 +65,19 @@ const EmailNotifications = () => {
           </button>
         </div>
       )}
-      <Table responsiveTag={true} className="table table-hover">
+      <Table hover={true} responsive className="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">
+              <input type="checkbox" disabled />
+            </th>
+            <th scope="col">Stare</th>
+            <th scope="col">To</th>
+            <th scope="col text-align-center">Message</th>
+            <th scope="col">Date</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
         <tbody>
           {emailsList.map((email) => (
             <tr key={email.id} className={email.isRead ? "table-light" : ""}>
@@ -124,26 +100,81 @@ const EmailNotifications = () => {
                   )}
                 </span>
               </td>
-              <td className={email.isRead ? "" : "text-dark fw-bold"}>
-                {email.from}
+              <td
+                className={`text-nowrap ${
+                  email.isRead ? "" : "text-dark fw-bold"
+                }`}
+              >
+                {email.to}
               </td>
-              <td className={email.isRead ? "" : "text-dark fw-bold"}>
-                {email.message.substring(0, 100)}...
+              <td
+                className={`text-nowrap text-truncate ${
+                  email.isRead ? "" : "text-dark fw-bold "
+                } `}
+                style={{ maxWidth: "450px" }}
+              >
+                {email.message}
               </td>
               <td className={email.isRead ? "" : "text-dark fw-bold"}>
                 {email.date}
               </td>
               <td className={`${email.isRead ? "" : "text-dark fw-bold"}`}>
-                <div className="d-flex gap-3">
-                  <FaRegEye size={20} />
-                  <CiEdit size={20} />
-                  <MdDeleteOutline size={20} />
+                <div className="d-flex gap-2">
+                  <IconWithTooltip
+                    id="viewTooltip"
+                    handleClick={() => navigate(`${email.id}`)}
+                    IconComponent={FaRegEye}
+                    size={20}
+                    tooltip="View"
+                  />
+                  <IconWithTooltip
+                    id="editTooltip"
+                    handleClick={() => {
+                      setEmailId(email.id);
+                      setSelectedTabIndex(1);
+                    }}
+                    IconComponent={CiEdit}
+                    size={20}
+                    tooltip="Edit"
+                  />
+                  {/* <FaRegEye size={20} onClick={() => navigate(`${email.id}`)} /> */}
+
+                  {/* <CiEdit size={20} onClick={() => {}} /> */}
+                  <IconWithTooltip
+                    id="deleteTooltip"
+                    IconComponent={MdDeleteOutline}
+                    size={20}
+                    tooltip="Delete"
+                  />
+                  {/* <MdDeleteOutline size={20} /> */}
                 </div>
               </td>
             </tr>
           ))}
         </tbody>
       </Table>
+    </div>
+  );
+};
+
+const IconWithTooltip = ({ id, handleClick, IconComponent, size, tooltip }) => {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const toggle = () => setTooltipOpen(!tooltipOpen);
+
+  return (
+    <div>
+      <div id={id} onClick={() => handleClick()} className="cursor-pointer">
+        <IconComponent size={size} />
+      </div>
+      <Tooltip
+        placement="bottom"
+        isOpen={tooltipOpen}
+        target={id}
+        toggle={toggle}
+      >
+        {tooltip}
+      </Tooltip>
     </div>
   );
 };

@@ -36,6 +36,7 @@ import "@styles/react/libs/react-hot-toasts/react-hot-toasts.scss";
 
 // ** Core styles
 import "./@core/assets/fonts/feather/iconfont.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./@core/scss/core.scss";
 import "./assets/scss/style.scss";
 
