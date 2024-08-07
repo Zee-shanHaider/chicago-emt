@@ -33,3 +33,8 @@
 .react-tabs__tab--selected {
   background: none !important;
 }
+
+.fc .fc-daygrid-day-top {
+  display: flex;
+  flex-direction: row !important;
+}

@@ -157,7 +157,13 @@ const EmailNotifications = ({ setEmailId, emails, setSelectedTabIndex }) => {
   );
 };
 
-const IconWithTooltip = ({ id, handleClick, IconComponent, size, tooltip }) => {
+export const IconWithTooltip = ({
+  id,
+  handleClick,
+  IconComponent,
+  size,
+  tooltip,
+}) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const toggle = () => setTooltipOpen(!tooltipOpen);

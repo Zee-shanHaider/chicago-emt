@@ -46,7 +46,7 @@ const Courses = () => {
 
   const currentData = data.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage 
+    currentPage * itemsPerPage
   );
   const toggle = () => setModal(!modal);
 
@@ -79,7 +79,7 @@ const Courses = () => {
         </Modal>
       </div>
       <h1>Courses List</h1>
-      <div className="d-flex w-full h-full flex-column justify-content-between align-items-end">
+      <div className="d-flex w-full h-full flex-column justify-content-between">
         <MyTable headers={headers} data={currentData} />
         <MyPagination
           currentPage={currentPage}
